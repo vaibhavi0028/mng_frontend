@@ -15,7 +15,7 @@ const FourthComponent: React.FC = () => {
       <h2 className={styles.services}>SERVICES</h2>
       <h1 className={styles.experiencedText}>Experienced in multiple<br/>medical practices</h1>
       <p className={styles.description}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown.
       </p>
       <div className={styles.cardContainer}>
         {cardData.map((card, index) => (
