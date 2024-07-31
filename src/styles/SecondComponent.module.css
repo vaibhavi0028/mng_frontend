@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem;
+}
+
+.logoContainer img{
+  height:2.5rem;
+  width:auto;
+  margin: 0 0.5rem;
+  padding: 0;
+}
+
+.logoText {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .logoContainer {
+    margin: 1.5rem 0;
+  }
+}

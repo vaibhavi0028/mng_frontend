@@ -1,0 +1,81 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leftContainer {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.rightContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.horizontalBar {
+  border: 2px solid #24da8b;
+  width: 20px;
+  height:1px;
+  margin-bottom: 1rem;
+}
+
+.sameline{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:0.5rem;
+}
+
+.expertText {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.mainHeading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height:2rem;
+}
+
+.subText {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.appointmentButton {
+  background: #204ea5;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.appointmentButton:hover {
+  background-color: #1a3f8a;
+  box-shadow: 0 6px 30px rgb(26, 63, 138,0.2);
+}
+
+@media (min-width: 768px) {
+  .mainContainer {
+    flex-direction: row;
+  }
+
+  .mainHeading {
+    font-size: 3.8rem;
+    line-height:4.5rem;
+    margin-bottom: 2rem;
+  }
+
+}

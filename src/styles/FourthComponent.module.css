@@ -1,0 +1,95 @@
+.container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .services {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color:#204EA5;
+    font-weight: 700;
+  }
+  
+  .experiencedText {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin:2rem;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: calc(50% - 1rem);
+    max-width: 250px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    flex-direction: column;
+    justify-content: left;
+    
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+  }
+  
+  .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin:0.5rem 0;
+  }
+
+  .iconContainer img{
+    background-color: #DBE7FF;
+    border-radius: 5px;
+  }
+  
+  .cardContent {
+    text-align: left;
+    margin: 1.5rem 0 0.5rem 0;
+  }
+  
+  .cardHeading {
+    color: #204EA5;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size:1.2rem;
+  }
+  
+  .cardText {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cardContainer {
+      flex-direction: column;
+    }
+  }

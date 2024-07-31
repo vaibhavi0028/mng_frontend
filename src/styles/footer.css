@@ -1,0 +1,146 @@
+.foot {
+    width: 100%;
+    background-color: #FFF;
+    padding-top: 4rem;
+    font-family: "inter", sans-serif;
+  }
+  
+  .fup {
+    width: 87%;
+    margin: 0 auto;
+    border-bottom: 1px solid #E6E6E6;
+    display: flex;
+    gap: 16rem;
+    padding-left: 8rem;
+    padding-bottom: 2rem;
+  }
+  
+  .col1 {
+    width: 18.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .col1 h1 {
+    color: #204EA5;
+    font-size: 1.5rem;
+  }
+  
+  .col1 p {
+    color: #565656;
+    padding-left: 2rem;
+    font-size: 1.05rem;
+  }
+  
+  .cols {
+    display: flex;
+    gap: 4rem;
+  }
+  
+  .col2, .col3, .col4 {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: #565656;
+  }
+  
+  .col2 h1, .col3 h1, .col4 h1 {
+    font-size: 1.15rem;
+    color: black;
+  }
+  
+  .fdown {
+    width: 87%;
+    padding-top: 2.5rem;
+    margin: 0 auto;
+    display: flex;
+    gap: 34rem;
+    flex-wrap: wrap;
+  }
+  
+  .fcol1 {
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+  }
+  
+  .fcol1 h1 {
+    font-weight: 400;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 1.5rem;
+    padding-left: 1.2rem;
+  }
+  
+  .icons img {
+    height: 1.2rem;
+    width: 1.7rem;
+  }
+  
+  .fcols {
+    display: flex;
+    gap: 10rem;
+    padding-bottom: 2rem;
+  }
+  
+  .fcol4, .fcol2, .fcol3 {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+  
+  .fcol4 h1, .fcol2 h1, .fcol3 h1 {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .fup {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-left: 0;
+      gap: 3rem;
+    }
+    .col1, .cols {
+      width: 100%;
+      gap: 1rem;
+    }
+  
+    .cols {
+      justify-content: center;
+    }
+  
+    .col2, .col3, .col4 {
+      width: 100%;
+      align-items: center;
+    }
+  
+    .fdown {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 2rem;
+    }
+  
+    .fcol1 {
+        gap: 10rem;
+        padding-right: 1rem;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .fcols {
+      gap: 9rem;
+      align-items: center;
+    }
+  
+    .icons {
+      justify-content: center;
+    }
+  }
+  
