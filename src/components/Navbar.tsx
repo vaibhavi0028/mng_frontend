@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <a href="/">
-            <Image src="/logo.svg" alt="M&G Logo" width={100} height={40} />
+            <Image src="/logo.png" alt="M&G Logo" width={100} height={40} />
           </a>
         </div>
 

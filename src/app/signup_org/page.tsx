@@ -44,7 +44,7 @@ const SignUpOrg: React.FC = () => {
       <div className={styles.logoContainer}>
         <a href="/">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Logo"
             width={100}
             height={100}
