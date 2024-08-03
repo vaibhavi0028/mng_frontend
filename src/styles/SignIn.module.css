@@ -24,6 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .imageContainer {
@@ -37,6 +38,7 @@
   height: 80vh;
   width: auto;
   padding: 2rem;
+  
 }
 
 .rightSide {
@@ -89,6 +91,7 @@
   transform: translateY(-50%);
   color: #666;
   pointer-events: none;
+  z-index:5;
 }
 
 .inputGroup input {
@@ -104,33 +107,75 @@
 
 .inputGroup label {
   position: absolute;
-  font-size: 0.9rem;
-  left: 0.6rem;
+  left: 0.75rem;
   top: 0.5rem;
-  background-color: white;
-  padding: 2px 30% 2px 5px;
+  font-size: 1rem;
   color: #666;
   transition: all 0.3s ease;
   pointer-events: none;
+  padding: 0 0.25rem;
+  background-color: white;
 }
 
 .inputGroup input:focus {
-  border: #367aff 2px solid;
-  outline: #367aff;
+  border: 2px solid #367aff;
+  outline: none;
+  --tw-ring-inset: initial;
 }
 
 .inputGroup input:focus + label,
+.inputGroup input:not(:placeholder-shown) + label,
 .activeLabel {
-  transform: translateY(-1.3rem) translateX(-0.2rem);
+  transform: translateY(-1.1rem) translateX(-0.2rem);
   font-size: 0.75rem;
   color: #367aff;
-  background-color: white;
-  padding: 0 0.25rem;
   font-weight: 500;
+  background-color: white;
 }
 
 .activeInput {
   border-color: #367aff;
+}
+
+.errorInput {
+  border: #f00 2px solid;
+  outline: #f00;
+}
+
+.errorMessage {
+  color: #ff0000;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.inputGroup input.errorInput {
+  border-color: #ff0000;
+}
+
+.inputGroup input.errorInput:focus {
+  border-color: #ff0000;
+}
+
+.inputGroup input.errorInput + label {
+  color: #ff0000;
+}
+
+.dateInputWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.dateInputWrapper .calendarIcon {
+  right: 0.7rem;
+}
+
+.calendarPopover {
+  z-index: 10;
+}
+
+.datePickerVisible {
+  border: 2px solid #367aff;
+  border-radius: 4px;
 }
 
 .eyeIcon,
@@ -143,15 +188,44 @@
   cursor: pointer;
 }
 
+.eyeIcon2,
+.calendarIcon2 {
+  position: absolute;
+  right: 10px;
+  top: 32%;
+  transform: translateY(-50%);
+  color: #666;
+  cursor: pointer;
+}
+
 .checkboxGroup {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.checkboxGroup label {
-  margin-left: 0.5rem;
-  color: black;
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  color: #666;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.signInButton:hover {
+  background-color: #0041c4;
 }
 
 .signInButton {
@@ -188,6 +262,7 @@
   width: 100%;
   padding: 0.5rem;
   background-color: transparent;
+  color:Black;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 0.85rem;
@@ -195,6 +270,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.googleButton:hover {
+  background-color: transparent;
+  border: 2px solid #000000;
 }
 
 .googleButton img {

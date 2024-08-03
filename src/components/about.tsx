@@ -36,11 +36,11 @@ const About: React.FC = () => {
                         <div className="but2">
                             <p>About Us</p>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
     );
-}
+} 
 
 export default About;

@@ -1,25 +1,43 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "@/styles/SignIn.module.css";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+
+const schema = z.object({
+  name: z.string().min(1, { message: "Organisation Name is required" }),
+  address: z.string().min(1, { message: "Address is required" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
+  keepLoggedIn: z.boolean().optional(),
+});
 
 const SignUpOrg: React.FC = () => {
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState(""); // Added state for address
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
-  const [nameFocused, setNameFocused] = useState(false);
-  const [addressFocused, setAddressFocused] = useState(false); // Added focus state for address
-  const [emailFocused, setEmailFocused] = useState(false);
-  const [passwordFocused, setPasswordFocused] = useState(false);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+  
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const dobInputRef = useRef<HTMLInputElement>(null);
 
   const handlePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
+  const hasError = !!errors.password;
 
   return (
     <div className={styles.container}>
@@ -43,115 +61,143 @@ const SignUpOrg: React.FC = () => {
         <div className={styles.formContainer}>
           <h1 className={styles.title}>Sign Up</h1>
           <p className={styles.subtitle}>Sign up to enjoy the feature of M&G</p>
-          <div className={styles.inputGroups}>
-            <div className={styles.inputGroup}>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onFocus={() => setNameFocused(true)}
-                onBlur={() => setNameFocused(false)}
-                className={name || nameFocused ? styles.activeInput : ""}
-              />
-              <label
-                htmlFor="name"
-                className={name || nameFocused ? styles.activeLabel : ""}
-              >
-                Organisation Name
-              </label>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.inputGroups}>
+              <div className={styles.inputGroup}>
+                <Controller
+                  name="name"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <>
+                      <Input
+                        {...field}
+                        type="text"
+                        className={`${styles.input} ${errors.name ? styles.errorInput : ""}`}
+                        placeholder=" "
+                      />
+                      <label className={field.value ? styles.activeLabel : ""}>Organisation Name</label>
+                    </>
+                  )}
+                />
+                {errors.name && (
+                  <span className={styles.errorMessage}>
+                    {typeof errors.name.message === "string" && errors.name.message}
+                  </span>
+                )}
+              </div>
+
+              <div className={styles.inputGroup}>
+                <Controller
+                  name="address"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <>
+                      <Input
+                        {...field}
+                        type="text"
+                        className={`${styles.input} ${errors.address ? styles.errorInput : ""}`}
+                        placeholder=" "
+                      />
+                      <label className={field.value ? styles.activeLabel : ""}>Address</label>
+                    </>
+                  )}
+                />
+                {errors.address && (
+                  <span className={styles.errorMessage}>
+                    {typeof errors.address.message === "string" && errors.address.message}
+                  </span>
+                )}
+              </div>
+
+              <div className={styles.inputGroup}>
+                <Controller
+                  name="email"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <>
+                      <Input
+                        {...field}
+                        type="email"
+                        className={`${styles.input} ${errors.email ? styles.errorInput : ""}`}
+                        placeholder=" "
+                      />
+                      <label className={field.value ? styles.activeLabel : ""}>Email</label>
+                    </>
+                  )}
+                />
+                {errors.email && (
+                  <span className={styles.errorMessage}>
+                    {typeof errors.email.message === "string" && errors.email.message}
+                  </span>
+                )}
+              </div>
+
+              <div className={styles.inputGroup}>
+                <Controller
+                  name="password"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <div className={styles.passwordContainer}>
+                      <Input
+                        {...field}
+                        type={passwordVisible ? "text" : "password"}
+                        className={`${styles.input} ${errors.password ? styles.errorInput : ""}`}
+                        placeholder=" "
+                      />
+                      <label className={field.value ? styles.activeLabel : ""}>Password</label>
+                      <span className={`${styles.eyeIcon} ${hasError ? styles.eyeIcon2 : ""}`} onClick={handlePasswordVisibility}>
+                        {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
+                  )}
+                />
+                {errors.password && (
+                  <span className={styles.errorMessage}>
+                  {typeof errors.password.message === "string" && errors.password.message}
+                </span>
+                )}
+              </div>
             </div>
 
-            <div className={styles.inputGroup}>
-              <input
-                type="text"
-                id="address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                onFocus={() => setAddressFocused(true)}
-                onBlur={() => setAddressFocused(false)}
-                className={address || addressFocused ? styles.activeInput : ""}
-                required
+            <div className={styles.checkboxGroup}>
+              <Controller
+                name="keepLoggedIn"
+                control={control}
+                render={({ field }) => (
+                  <div className={styles.checkboxWrapper}>
+                    <Checkbox
+                      id="keepLoggedIn"
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      className={styles.checkbox}
+                    />
+                    <label htmlFor="keepLoggedIn" className={styles.checkboxLabel}>
+                      Keep me logged in
+                    </label>
+                  </div>
+                )}
               />
-              <label
-                htmlFor="address"
-                className={address || addressFocused ? styles.activeLabel : ""}
-              >
-                Address
-              </label>
             </div>
 
-            <div className={styles.inputGroup}>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onFocus={() => setEmailFocused(true)}
-                onBlur={() => setEmailFocused(false)}
-                className={email || emailFocused ? styles.activeInput : ""}
-              />
-              <label
-                htmlFor="email"
-                className={email || emailFocused ? styles.activeLabel : ""}
-              >
-                Email
-              </label>
+            <Button type="submit" className={styles.signInButton}>Sign Up</Button>
+
+            <div className={styles.orDivider}>
+              <span>or</span>
             </div>
 
-            <div className={styles.inputGroup}>
-              <input
-                type={passwordVisible ? "text" : "password"}
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onFocus={() => setPasswordFocused(true)}
-                onBlur={() => setPasswordFocused(false)}
-                className={
-                  password || passwordFocused ? styles.activeInput : ""
-                }
-              />
-              <label
-                htmlFor="password"
-                className={
-                  password || passwordFocused ? styles.activeLabel : ""
-                }
-              >
-                Password
-              </label>
-              <span
-                className={styles.eyeIcon}
-                onClick={handlePasswordVisibility}
-              >
-                {passwordVisible ? <FaEyeSlash /> : <FaEye />}
-              </span>
-            </div>
-          </div>
+            <Button className={styles.googleButton}>
+              Sign Up with Google
+              <Image src="/google-logo.svg" alt="Google" width={20} height={20} />
+            </Button>
 
-          <div className={styles.checkboxGroup}>
-            <input
-              type="checkbox"
-              id="keepLoggedIn"
-              checked={keepLoggedIn}
-              onChange={(e) => setKeepLoggedIn(e.target.checked)}
-            />
-            <label htmlFor="keepLoggedIn">Keep me logged in</label>
-          </div>
-
-          <button className={styles.signInButton}>Sign Up</button>
-
-          <div className={styles.orDivider}>
-            <span>or</span>
-          </div>
-
-          <button className={styles.googleButton}>
-            Sign Up with Google
-            <Image src="/google-logo.svg" alt="Google" width={20} height={20} />
-          </button>
-
-          <p className={styles.createAccount}>
-            Already have an account? <a href="/signin">Sign In</a>
-          </p>
+            <p className={styles.createAccount}>
+              Already have an account? <a href="/signin">Sign In</a>
+            </p>
+          </form>
         </div>
       </div>
     </div>
