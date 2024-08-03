@@ -42,15 +42,15 @@ const SignUpOrg: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.logoContainer}>
-        <a href="/">
+        
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="Logo"
             width={100}
             height={100}
             className={styles.logo}
           />
-        </a>
+        
       </div>
       <div className={styles.leftSide}>
         <div className={styles.imageContainer}>
