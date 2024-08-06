@@ -105,9 +105,27 @@
     color: gray;
   }
   
+  @media (max-width: 1024px){
+    .testimonial-slide{
+      height: 25.5rem;
+    }
+    .testim{
+      height: 39rem;
+    }
+  }
+
   @media (max-width:768px){
     .testim {
-        height: 40rem;
+        height: 45rem;
         padding-top: 4rem;
       }
+      .testimonial-slide{
+        height: 30rem;
+      }
+  }
+
+  @media(max-width:425px){
+    .testimonial-slide{
+      height: 26rem;
+    }
   }

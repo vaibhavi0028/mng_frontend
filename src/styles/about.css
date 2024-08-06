@@ -22,8 +22,8 @@
 }
 
 .img1 {
-    height: 32rem;
-    width: 35rem;
+    height: 100%;
+    width: 100%;
     background-image: url("/aboutimg.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -96,13 +96,13 @@
 }
 
 .abtu {
-    font-size: 20px;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #204EA5;
 }
 
 .abt2 {
-    font-size: 35px;
+    font-size: 2.05rem;
     width: 85%;
 }
 
@@ -110,7 +110,7 @@
     margin-top: 8.85%;
     width: 68%;
     height: 30%;
-    font-size: 18px;
+    font-size: 1.1rem;
     display: flex;
     flex-direction: column;
     gap: 20%;
@@ -141,6 +141,28 @@
     font-weight: 500;
     border: 1.5px solid #204EA5;
 }
+
+@media (max-width: 1024px){
+    .r3{
+        margin-top: 6rem;
+    }
+    .float{
+        width: 40%;
+        height: 42%;
+        top: 62.5%;
+        left: 75%;
+    }
+}
+
+@media (max-width: 425px){
+.abtu{
+    font-size: 1.5rem;
+}
+.abt2{
+    font-size: 1.7rem;
+}
+}
+
 
 @media(max-width: 768px) {
     .section {

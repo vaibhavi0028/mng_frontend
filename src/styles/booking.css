@@ -63,6 +63,13 @@
     border: none;
     background-color: #fff;
 }
+
+@media (max-width: 1024px){
+  .butbk{
+    padding-left: 9%;
+  }
+}
+
 @media (max-width: 768px) {
     .seection {
       height: 34rem;
@@ -71,6 +78,7 @@
   
     .boxbk {
       width: 90%;
+      height: 83%;
       padding-top: 2.5rem;
       padding-bottom: 2rem;
     }
@@ -102,4 +110,14 @@
       width: 50%;
     }
   }
-  
+  @media (max-width:425px){
+    .inp{
+      width: 39rem;
+    }
+    .butbk{
+      padding-left: 10%;
+    }
+    .butbk button{
+      margin-left: 5rem;
+    }
+  }

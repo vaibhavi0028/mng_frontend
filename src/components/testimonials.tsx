@@ -58,6 +58,57 @@ const Testimonials: React.FC = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2,
+    appendDots: (dots: React.ReactNode) => (
+      <div
+        style={{
+          backgroundColor: "#F9FDFF",
+          borderRadius: "10px",
+        }}
+      >
+        <ul style={{ marginTop: "50px", display: "flex", gap: "40px", marginLeft: "31.5%" }}>
+          {dots}
+        </ul>
+      </div>
+    )
+        }
+      },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          appendDots: (dots: React.ReactNode) => (
+            <div
+              style={{
+                backgroundColor: "#F9FDFF",
+                borderRadius: "10px",
+              }}
+            >
+              <ul style={{ marginTop: "2.5rem", display: "flex", gap: "40px", marginLeft: "13%" }}>
+                {dots}
+              </ul>
+            </div>
+          )
+        }
+      }
+    ],
     appendDots: (dots: React.ReactNode) => (
       <div
         style={{
